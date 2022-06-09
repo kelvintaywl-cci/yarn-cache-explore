@@ -10,6 +10,9 @@ jobs:
     executor: android
     steps:
       - run:
+          name: install Yarn globally
+          command: npm install --global yarn
+      - run:
           name: quick diagnose
           command: |
             which yarn && yarn --version

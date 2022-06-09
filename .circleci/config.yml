@@ -8,6 +8,8 @@ executors:
 jobs:
   yarn-fun:
     executor: android
+    environment:
+      CACHE_VERSION: v1
     steps:
       - run:
           name: install Yarn globally
@@ -23,6 +25,12 @@ jobs:
             yarn add cowsay
             yarn install
             cat yarn.lock
+    - save_cache:
+        name: Yarn - Cache update
+        paths:
+          - ./node_modules
+        key: |
+          yarn-cache-{{ .Environment.CACHE_VERSION }}-{{ arch }}-{{ checksum "yarn.lock" }}
 workflows:
   ball:
     jobs:

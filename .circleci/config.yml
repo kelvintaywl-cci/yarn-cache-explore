@@ -16,7 +16,13 @@ jobs:
           name: quick diagnose
           command: |
             which yarn && yarn --version
-
+      - run:
+          name: install some modules
+          command: |
+            yarn install
+            yarn add cowsay
+            yarn install
+            cat yarn.lock
 workflows:
   ball:
     jobs:

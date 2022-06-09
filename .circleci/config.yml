@@ -25,12 +25,12 @@ jobs:
             yarn add cowsay
             yarn install
             cat yarn.lock
-    - save_cache:
-        name: Yarn - Cache update
-        paths:
-          - ./node_modules
-        key: |
-          yarn-cache-{{ .Environment.CACHE_VERSION }}-{{ arch }}-{{ checksum "yarn.lock" }}
+      - save_cache:
+          name: Yarn - Cache update
+          paths:
+            - ./node_modules
+          key: |
+            yarn-cache-{{ .Environment.CACHE_VERSION }}-{{ arch }}-{{ checksum "yarn.lock" }}
 workflows:
   ball:
     jobs:

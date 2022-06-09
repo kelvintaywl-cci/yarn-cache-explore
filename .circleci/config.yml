@@ -1,0 +1,20 @@
+version: 2.1
+
+executors:
+  android:
+    machine:
+      image: android:202102-01
+
+jobs:
+  yarn-fun:
+    executor: android
+    steps:
+      - run:
+          name: quick diagnose
+          command: |
+            which yarn && yarn --version
+
+workflows:
+  ball:
+    jobs:
+      - yarn-fun

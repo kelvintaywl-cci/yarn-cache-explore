@@ -18,6 +18,7 @@ jobs:
           name: quick diagnose
           command: |
             which yarn && yarn --version
+      - checkout
       - run:
           name: install some modules
           command: |

@@ -22,8 +22,6 @@ jobs:
           name: install some modules
           command: |
             yarn install
-            yarn add cowsay
-            yarn install
             cat yarn.lock
       - save_cache:
           name: Yarn - Cache update

@@ -24,6 +24,8 @@ jobs:
           command: |
             yarn install
             cat yarn.lock
+            # find out total size
+            du -sh node_modules
       - save_cache:
           name: Yarn - Cache update
           paths:
